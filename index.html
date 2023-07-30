@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punjab Engineering College - Attendance Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212; /* Dark background color */
+      color: #ffffff; /* White text color */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #1e1e1e; /* Dark container background color */
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      color: #1a237e;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    h2 {
+      color: #3f51b5;
+      margin-bottom: 40px;
+      font-size: 24px;
+    }
+
+    .logo {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #3f51b5; /* Change button color if desired */
+      color: #ffffff; /* White text color */
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      width: 180px;
+      transition: background-color 0.3s ease;
+      animation: slideIn 1s ease;
+    }
+
+    button:hover {
+      background-color: #1a237e; /* Change button hover color if desired */
+    }
+
+    /* Contact Information Section Styles */
+    .contact-info {
+      margin-top: 40px;
+      border-top: 1px solid #ffffff;
+      padding-top: 20px;
+    }
+
+    .contact-info h2 {
+      color: #3f51b5;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .contact-info p {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .contact-info strong {
+      color: #ffffff;
+    }
+
+    /* Mobile responsiveness */
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .logo {
+        max-width: 150px;
+        margin-bottom: 15px;
+      }
+
+      button {
+        font-size: 14px;
+        width: 160px;
+      }
+
+      .contact-info h2 {
+        font-size: 20px;
+      }
+
+      .contact-info p {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Cover_PEC.png" alt="PEC Logo">
+    <h1>Punjab Engineering College</h1>
+    <h2>Attendance Portal</h2>
+    <p id="datetime"></p>
+    <button onclick="redirectToRole('teacher')">I am a Teacher</button>
+    <button onclick="redirectToRole('student')">I am a Student</button>
+
+    <!-- Contact Information Section -->
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p><strong>Attendance Department:</strong></p>
+      <p>Email: attendance@pec.edu</p>
+      <p>Phone: +1 123-456-7890</p>
+
+      <p><strong>Support Team:</strong></p>
+      <p>Email: support@pec.edu</p>
+      <p>Phone: +1 987-654-3210</p>
+    </div>
+  </div>
+
+  <script>
+    function redirectToRole(role) {
+      if (role === 'teacher') {
+        window.location.href = 'teacher_login.html';
+      } else if (role === 'student') {
+        window.location.href = 'login.html';
+      }
+    }
+
+    // Function to display the current date and time
+    function showDateTime() {
+      const datetimeElement = document.getElementById('datetime');
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+      const formattedDate = now.toLocaleDateString('en-US', options);
+      datetimeElement.textContent = formattedDate;
+    }
+
+    // Call the showDateTime function on page load
+    showDateTime();
+  </script>
+</body>
+
+</html>
